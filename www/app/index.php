@@ -24,13 +24,14 @@ $app->init();
     <title>Document</title>
 </head>
 <body>
-<nav>
-    <a href="?p=home">Startseite</a>
-    <a href="?p=about">About</a>
-    <a href="?p=contact">Contact</a>
-</nav>
-    <h2>Hallo OOP</h2>
 
+    <nav>
+        <a href="?p=home">Startseite</a>
+        <a href="?p=about">About</a>
+        <a href="?p=contact">Contact</a>
+    </nav>
+
+    <h2>Hallo OOP</h2>
     <?php require('pages/' . $app->validPage() .  '.php') ?>
 
 </body>

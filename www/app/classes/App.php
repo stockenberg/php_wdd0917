@@ -11,10 +11,24 @@ class App
 {
 
     private $whitelist = ['home', 'about', 'contact'];
+    private $request;
 
     public function init()
     {
-        var_dump($_GET);
+        $this->request = array_merge($_POST, $_GET);
+
+        if($this->request['p'] ?? '' === 'contact'){
+            if($this->request['action'] ?? '' === 'submit'){
+                $validate = new Validate($this->request['contact']);
+                $res = $validate->clearInput();
+
+                if(empty(StatusLog::allEntries()['contact'])){
+                    echo "send mail!";
+                }
+            }
+        }
+
+        var_dump(StatusLog::allEntries());
     }
 
     /**

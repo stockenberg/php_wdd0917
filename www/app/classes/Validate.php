@@ -15,7 +15,7 @@ namespace classes;
 class Validate
 {
     /** @var array required Fields in Formular */
-    private $requiredFields = ['agb', 'email', 'test'];
+    private $requiredFields = ['agb', 'email', 'firstname'];
 
     /** @var $_GET $_POST merged */
     private $request;
@@ -24,9 +24,9 @@ class Validate
      * Validate constructor.
      * @param $request
      */
-    public function __construct($request)
+    public function __construct($post)
     {
-        $this->request = $request;
+        $this->request = $post;
         $this->presetRequiredFields();
     }
 
@@ -48,7 +48,7 @@ class Validate
      * @param $value
      * @return string
      */
-    private function checkIfIssetAndEmpty($formField, $value) : string
+    private function checkIfIssetAndEmpty($formField, $value)
     {
         if (isset($this->request[$formField])) {
             if(!empty($this->request[$formField])){
@@ -56,8 +56,6 @@ class Validate
             }else{
                 StatusLog::group('contact', $formField, "Bitte fülle das Feld: " . $formField . "aus");
             }
-        } else {
-            StatusLog::group('contact', 'agb', "Bitte fülle das Feld: " . $formField . "aus");
         }
     }
 

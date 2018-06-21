@@ -14,24 +14,14 @@ class App
     public static $whitelist = ['home', 'about', 'contact'];
     private $request;
 
-    public $page_methods = [
-        'contact' => [
-            'class' => Test::class,
-            'actions' => [
-                'submit' => 'submitFunc',
-                'read' => 'readFunc'
-            ],
-        ]
-    ];
-
     public function init()
     {
         $this->request = array_merge($_POST, $_GET);
 
         Route::get(
             $this->request['p'],
-            $this->page_methods[$this->request['p']]['class'] ?? null,
-            $this->page_methods[$this->request['p']]['actions'][$this->request['action']] ?? null
+            PageAction::PAGE_METHODS[$this->request['p']]['class'] ?? null,
+            PageAction::PAGE_METHODS[$this->request['p']]['actions'][$this->request['action']] ?? null
         );
 
 

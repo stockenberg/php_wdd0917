@@ -12,6 +12,14 @@ namespace classes;
 class Route
 {
 
+    /**
+     * Gets a Page parameter, Classname and Action
+     * If Classname and Action are set, then the Class will be instanciated.
+     * If the action is set, the method of the given class will be executed.
+     * @param $get
+     * @param null $classname
+     * @param null $action
+     */
     public static function get($get, $classname = null,  $action = null)
     {
         if (isset($get)) {

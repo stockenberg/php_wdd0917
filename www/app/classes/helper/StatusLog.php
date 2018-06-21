@@ -6,7 +6,7 @@
  * Time: 10:49
  */
 
-namespace classes;
+namespace classes\helper;
 
 class StatusLog
 {

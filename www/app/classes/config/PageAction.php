@@ -6,18 +6,19 @@
  * Time: 10:01
  */
 
-namespace classes;
+namespace classes\config;
 
+
+use classes\controller\ContactController;
 
 class PageAction
 {
 
     const PAGE_METHODS = [
         'contact' => [
-            'class' => Test::class,
+            'class' => ContactController::class,
             'actions' => [
-                'submit' => 'submitFunc',
-                'read' => 'readFunc'
+                'submit' => 'submit',
             ],
         ]
     ];

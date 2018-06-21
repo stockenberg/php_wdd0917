@@ -8,10 +8,11 @@
 
 namespace classes;
 
+use classes\config\PageAction;
+use classes\helper\Route;
 
 class App
 {
-    public static $whitelist = ['home', 'about', 'contact'];
     private $request;
 
     public function init()
@@ -24,26 +25,6 @@ class App
             PageAction::PAGE_METHODS[$this->request['p']]['actions'][$this->request['action']] ?? null
         );
 
-
-    }
-
-
-    /**
-     * Checks if the given GET-Parameter is in the Whitelist,
-     * checks if File Exists, return valid page string
-     * @return string
-     */
-    public function validPage(): string
-    {
-        if (isset($_GET['p'])) {
-            if (in_array($_GET['p'], App::$whitelist)) {
-                if (file_exists('pages/' . $_GET['p'] . '.php')) {
-                    return $_GET['p'];
-                }
-                return '404';
-            }
-        }
-        return 'home';
     }
 
 

@@ -8,7 +8,6 @@
 
 require_once ('vendor/autoload.php');
 
-
 $app = new classes\App();
 $app->init();
 
@@ -32,7 +31,7 @@ $app->init();
     </nav>
 
     <h2>Hallo OOP</h2>
-    <?php require('pages/' . $app->validPage() .  '.php') ?>
+    <?php require('pages/' . \classes\helper\Route::validPage() .  '.php') ?>
 
 </body>
 </html>

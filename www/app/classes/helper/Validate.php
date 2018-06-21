@@ -6,7 +6,7 @@
  * Time: 10:38
  */
 
-namespace classes;
+namespace classes\helper;
 
 /**
  * Class Validate

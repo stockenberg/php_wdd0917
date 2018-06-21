@@ -6,7 +6,7 @@
  * Time: 11:06
  */
 
-namespace classes;
+namespace classes\helper;
 
 
 use classes\interfaces\SessionInterface;

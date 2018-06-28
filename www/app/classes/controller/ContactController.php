@@ -15,6 +15,7 @@ use classes\model\Contact;
 
 class ContactController
 {
+    
 
     public function submit()
     {

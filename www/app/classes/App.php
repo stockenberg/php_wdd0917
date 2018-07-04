@@ -18,11 +18,10 @@ class App
     public function init()
     {
         $this->request = array_merge($_POST, $_GET);
-
         Route::get(
-            $this->request['p'],
-            PageAction::PAGE_METHODS[$this->request['p']]['class'] ?? null,
-            PageAction::PAGE_METHODS[$this->request['p']]['actions'][$this->request['action']] ?? null
+            $this->request['p'] ?? '',
+            PageAction::PAGE_METHODS[$this->request['p'] ?? '']['class'] ?? null,
+            PageAction::PAGE_METHODS[$this->request['p'] ?? '']['actions'][$this->request['action'] ?? ''] ?? null
         );
 
     }
